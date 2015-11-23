@@ -54,6 +54,9 @@ image jobs = "resources/characters/jobs/jobs.png"
 image jobs gun = "resources/characters/jobs/jobs_gun.png"
 image jobs gun fire = "resources/characters/jobs/jobs_gun_fire.png"
 
+init:
+    $ import webbrowser
+
 # The game starts here.
 label start:
     $ gave_email = False
@@ -148,9 +151,12 @@ label bakerhouse_1:
             stallman "THIS IS ALWAYS WHAT HAPPENS TO NICE GUYS, WE FINISH LAST."
             stallman "FUCK YOU, 'Lame Iwa-ching-cong' OR WHATEVER THE FUCK YOU'RE CALLED!"
             stallman "I GAVE YOU MY COPY OF SICP AND THIS IS HOW YOU TREAT ME? SUCK A DICK."
+            $ renpy.music.set_volume(0.5, delay=0, channel="music")            
+            play sound "resources/sounds/reee.ogg"
             stallman "REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"
             hide stallman angry
             with moveoutright
+            stop sound fadeout 1.0
             #TODO: Add door slamming sound effect.
 
     "Even though he's been eccentric, you feel a strange affection for him."
@@ -171,12 +177,10 @@ label bedroom_night:
     menu:
         "Read SICP":
             #Opens your web browser at a HTML5 version of SICP.
-            $ import webbrowser
             $ webbrowser.open("http://sarabander.github.io/sicp/html/index.xhtml")
             "If everything went to plan, your browser opened at SICP. Read it then!"
             "You've read SICP deep in to the night, until you drift off."
         "Fall asleep":
-            stop music
             "You lie down on the bed. Almost the second you do, you fall asleep. You must've needed it!"
 
     jump bedroom_morning
@@ -307,6 +311,6 @@ label bakerhouse_2:
     #You can choose to go to lunch with stallman, and that will cause the rest
     #of the game to follow the Stallman path. Or you can choose to go inside,
     #and phone Torvalds to start the torvalds fork.
-    menu:
-        "No - I'm sorry, I've something to do. (Go and phone Torvalds)":
-        "Yes - That sounds great!":
+    # menu:
+    #     "No - I'm sorry, I've something to do. (Go and phone Torvalds)":
+    #     "Yes - That sounds great!":
