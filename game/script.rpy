@@ -306,11 +306,15 @@ label bakerhouse_2:
     lain "Y-yeah. Just tired."
     stallman "Lain, I was wondering..."
     stallman "Would you like to go for lunch?"
+    "Hmmm... you think about it for a second. It sounds great, but you really need answers."
 
     #This is where shit gets real.
     #You can choose to go to lunch with stallman, and that will cause the rest
     #of the game to follow the Stallman path. Or you can choose to go inside,
     #and phone Torvalds to start the torvalds fork.
-    # menu:
-    #     "No - I'm sorry, I've something to do. (Go and phone Torvalds)":
-    #     "Yes - That sounds great!":
+    menu:
+        "No - I'm sorry, I've something to do. (Go and phone Torvalds)":
+            lain "I'm... I'm sorry. I've got something I need to do."
+        "Yes - That sounds great! (Go on date with Stallman)":
+            lain "Yeah, that sounds great!"
+
